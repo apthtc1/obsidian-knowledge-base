@@ -1,0 +1,8 @@
+{
+  "name": "obsidian-knowledge-base",
+  "compatibility_date": "2026-07-25",
+  "assets": {
+    "directory": "./public/",
+    "not_found_handling": "404-page"
+  }
+}

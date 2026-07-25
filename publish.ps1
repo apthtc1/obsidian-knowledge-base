@@ -8,6 +8,10 @@ Write-Host "Syncing notes from Obsidian..."
 robocopy "$VAULT_PATH" "$SITE_PATH\content" /E /XD .obsidian .trash /NFL /NDL /NJH /NJS /NC /NS
 
 Set-Location "$SITE_PATH"
+
+Write-Host "Building Quartz site..."
+npx quartz build
+
 git add .
 
 $changes = git diff --cached --quiet
@@ -20,4 +24,4 @@ $date = Get-Date -Format "yyyy-MM-dd HH:mm"
 git commit -m "Update knowledge base $date"
 git push origin main
 
-Write-Host "Done! Cloudflare Pages will rebuild automatically."
+Write-Host "Done! Cloudflare will rebuild automatically."
