@@ -18,6 +18,9 @@ Get-ChildItem -LiteralPath $VAULT_PATH -Exclude ".obsidian",".trash" | ForEach-O
     }
 }
 
+# Удаляем .git из скопированных папок
+Get-ChildItem -Path "$SITE_PATH\content" -Directory -Recurse -Filter ".git" | Remove-Item -Recurse -Force -ErrorAction SilentlyContinue
+
 Set-Location "$SITE_PATH"
 
 Write-Host "Building Quartz site..."
