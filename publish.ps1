@@ -21,6 +21,10 @@ Get-ChildItem -LiteralPath $VAULT_PATH -Exclude ".obsidian",".trash" | ForEach-O
 # Удаляем .git из скопированных папок
 Get-ChildItem -Path "$SITE_PATH\content" -Directory -Recurse -Filter ".git" | Remove-Item -Recurse -Force -ErrorAction SilentlyContinue
 
+# Удаляем все PDF-файлы (ссылки ведут на Google Drive)
+Get-ChildItem -Path "$SITE_PATH\content" -Recurse -Filter "*.pdf" | Remove-Item -Force -ErrorAction SilentlyContinue
+Write-Host "Excluded all PDF files from sync."
+
 Set-Location "$SITE_PATH"
 
 Write-Host "Building Quartz site..."
@@ -38,4 +42,7 @@ $date = Get-Date -Format "yyyy-MM-dd HH:mm"
 git commit -m "Update knowledge base $date"
 git push origin main
 
-Write-Host "Done! Cloudflare will rebuild automatically."
+Write-Host "Deploying to Cloudflare Workers..."
+npx wrangler deploy 2>&1
+
+Write-Host "Done! Site: https://obsidian-knowledge-base.apthtc78.workers.dev"

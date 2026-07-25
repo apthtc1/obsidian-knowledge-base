@@ -4,7 +4,7 @@ configuration:
   enableSPA: true
   enablePopovers: true
   locale: ru-RU
-  baseUrl: obsidian-knowledge-base.pages.dev
+  baseUrl: obsidian-knowledge-base.apthtc78.workers.dev
   ignorePatterns:
     - private
     - templates
