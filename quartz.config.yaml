@@ -12,32 +12,32 @@ configuration:
     - .trash
   theme:
     fontOrigin: googleFonts
-    cdnCaching: true
+    cdnCaching: false
     typography:
-      header: Schibsted Grotesk
+      header: JetBrains Mono
       body: Source Sans Pro
-      code: IBM Plex Mono
+      code: JetBrains Mono
     colors:
       lightMode:
-        light: "#faf8f8"
-        lightgray: "#e5e5e5"
-        gray: "#b8b8b8"
-        darkgray: "#4e4e4e"
-        dark: "#2b2b2b"
-        secondary: "#284b63"
-        tertiary: "#84a59d"
-        highlight: rgba(143, 159, 169, 0.15)
-        textHighlight: "#fff23688"
+        light: "#0a0e12"
+        lightgray: "#0d1318"
+        gray: "#1a2830"
+        darkgray: "#8ba3ac"
+        dark: "#e8f7fc"
+        secondary: "#38c6e8"
+        tertiary: "#38c6e8"
+        highlight: rgba(56, 198, 232, 0.12)
+        textHighlight: "#38c6e844"
       darkMode:
-        light: "#161618"
-        lightgray: "#393639"
-        gray: "#646464"
-        darkgray: "#d4d4d4"
-        dark: "#ebebec"
-        secondary: "#7b97aa"
-        tertiary: "#84a59d"
-        highlight: rgba(143, 159, 169, 0.15)
-        textHighlight: "#b3aa0288"
+        light: "#0a0e12"
+        lightgray: "#0d1318"
+        gray: "#1a2830"
+        darkgray: "#8ba3ac"
+        dark: "#e8f7fc"
+        secondary: "#38c6e8"
+        tertiary: "#38c6e8"
+        highlight: rgba(56, 198, 232, 0.12)
+        textHighlight: "#38c6e844"
 plugins:
   - source: "@quartz-community/created-modified-date"
     enabled: true
@@ -98,6 +98,16 @@ plugins:
     order: 92
   - source: "@quartz-community/quartz-fonts"
     enabled: true
+    options:
+      fontOrigin: googleFonts
+      body: Source Sans Pro
+      header: JetBrains Mono
+      code: JetBrains Mono
+      title: JetBrains Mono
+      interface: Source Sans Pro
+      h1: JetBrains Mono
+      h2: JetBrains Mono
+      h3: JetBrains Mono
   - source: "@quartz-themes/core"
     enabled: false
     options:
@@ -172,7 +182,7 @@ plugins:
       position: left
       priority: 10
   - source: "@quartz-community/darkmode"
-    enabled: true
+    enabled: false
     layout:
       position: left
       priority: 30
