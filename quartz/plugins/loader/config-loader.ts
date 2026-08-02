@@ -72,6 +72,9 @@ function extractPluginName(source: PluginSource): string {
     const match = url.match(/\/([^/]+?)(?:\.git)?(?:#|$)/)
     return match?.[1] ?? source
   }
+  if (source.startsWith("@") && source.includes("/")) {
+    return source.split("/")[1]
+  }
   return source
 }
 

@@ -1,6 +1,6 @@
 configuration:
-  pageTitle: Obsidian Knowledge Base
-  pageTitleSuffix: ""
+  pageTitle: InfoSec Vault
+  pageTitleSuffix: InfoSec Vault
   enableSPA: true
   enablePopovers: true
   locale: ru-RU
@@ -14,30 +14,30 @@ configuration:
     fontOrigin: googleFonts
     cdnCaching: false
     typography:
-      header: JetBrains Mono
-      body: Source Sans Pro
+      header: Montserrat
+      body: Montserrat
       code: JetBrains Mono
     colors:
       lightMode:
-        light: "#0a0e12"
-        lightgray: "#0d1318"
-        gray: "#1a2830"
-        darkgray: "#8ba3ac"
-        dark: "#e8f7fc"
-        secondary: "#38c6e8"
-        tertiary: "#38c6e8"
-        highlight: rgba(56, 198, 232, 0.12)
-        textHighlight: "#38c6e844"
+        light: "#0F1115"
+        lightgray: "#161A20"
+        gray: "#2A2E35"
+        darkgray: "#9CA3AF"
+        dark: "#E5E7EB"
+        secondary: "#B0B8C4"
+        tertiary: "#C9CDD4"
+        highlight: rgba(176, 184, 196, 0.10)
+        textHighlight: rgba(176, 184, 196, 0.15)
       darkMode:
-        light: "#0a0e12"
-        lightgray: "#0d1318"
-        gray: "#1a2830"
-        darkgray: "#8ba3ac"
-        dark: "#e8f7fc"
-        secondary: "#38c6e8"
-        tertiary: "#38c6e8"
-        highlight: rgba(56, 198, 232, 0.12)
-        textHighlight: "#38c6e844"
+        light: "#0F1115"
+        lightgray: "#161A20"
+        gray: "#2A2E35"
+        darkgray: "#9CA3AF"
+        dark: "#E5E7EB"
+        secondary: "#B0B8C4"
+        tertiary: "#C9CDD4"
+        highlight: rgba(176, 184, 196, 0.10)
+        textHighlight: rgba(176, 184, 196, 0.15)
 plugins:
   - source: "@quartz-community/created-modified-date"
     enabled: true
@@ -100,14 +100,30 @@ plugins:
     enabled: true
     options:
       fontOrigin: googleFonts
-      body: Source Sans Pro
-      header: JetBrains Mono
-      code: JetBrains Mono
-      title: JetBrains Mono
-      interface: Source Sans Pro
-      h1: JetBrains Mono
-      h2: JetBrains Mono
-      h3: JetBrains Mono
+      body:
+        name: Montserrat
+        weights: [300, 400, 500, 600, 700]
+      header:
+        name: Montserrat
+        weights: [300, 400, 500, 600, 700]
+      code:
+        name: JetBrains Mono
+        weights: [400, 500, 600]
+      title:
+        name: Montserrat
+        weights: [300, 600]
+      interface:
+        name: Montserrat
+        weights: [400, 500, 600]
+      h1:
+        name: Montserrat
+        weights: [300, 600]
+      h2:
+        name: Montserrat
+        weights: [300, 600]
+      h3:
+        name: Montserrat
+        weights: [300, 600]
   - source: "@quartz-themes/core"
     enabled: false
     options:
@@ -144,7 +160,7 @@ plugins:
       position: left
       priority: 50
   - source: "@quartz-community/graph"
-    enabled: true
+    enabled: false
     layout:
       position: right
       priority: 10
@@ -211,8 +227,7 @@ plugins:
     enabled: true
     options:
       links:
-        GitHub: https://github.com/jackyzha0/quartz
-        Discord Community: https://discord.gg/cRFFHYye7t
+        Профиль: /profile
   - source: "@quartz-community/recent-notes"
     enabled: false
   - source: "@quartz-community/spacer"
