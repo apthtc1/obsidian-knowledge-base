@@ -1,7 +1,7 @@
 ﻿$ErrorActionPreference = "Stop"
 
-$VAULT_PATH = "C:\Users\aptht\Desktop\Новая папка\Obsidian NAS\G"
-$SITE_PATH = "$env:USERPROFILE\quartz-site"
+$VAULT_PATH = "C:\Users\aptht\Obsidian\Storage"
+$SITE_PATH = "C:\Users\aptht\Obsidian\quartz-site"
 
 Write-Host "Syncing notes from Obsidian..."
 

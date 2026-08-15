@@ -1,34 +1,34 @@
 @use "./variables.scss" as *;
 
-// === Cybersecurity dark theme (forced) ===
+// === Luminary-style graphite theme (forced dark) ===
 
 // Force dark theme — override light mode CSS variables
 :root {
-  --light: #0a0e12 !important;
-  --lightgray: #0d1318 !important;
-  --gray: #1a2830 !important;
-  --darkgray: #8ba3ac !important;
-  --dark: #e8f7fc !important;
-  --secondary: #38c6e8 !important;
-  --tertiary: #38c6e8 !important;
-  --highlight: rgba(56, 198, 232, 0.12) !important;
-  --textHighlight: #38c6e844 !important;
-  --link-color: #38c6e8 !important;
-  --link-color-hover: #5ed8ff !important;
-  --icon-color: #8ba3ac !important;
-  --divider-color: #1a2830 !important;
-  --tag-background: rgba(56, 198, 232, 0.12) !important;
-  --tag-color: #38c6e8 !important;
-  --tag-background-hover: rgba(56, 198, 232, 0.22) !important;
-  --nav-item-color: #8ba3ac !important;
-  --nav-item-color-hover: #e8f7fc !important;
-  --nav-item-color-active: #38c6e8 !important;
-  --nav-item-background-hover: #0d1318 !important;
-  --nav-item-background-active: rgba(56, 198, 232, 0.12) !important;
-  --interactive-normal: #0a0e12 !important;
-  --interactive-hover: #0d1318 !important;
-  --interactive-accent: #38c6e8 !important;
-  --interactive-accent-hover: #5ed8ff !important;
+  --light: #0f1115 !important;
+  --lightgray: #161a20 !important;
+  --gray: #2a2e35 !important;
+  --darkgray: #9ca3af !important;
+  --dark: #e5e7eb !important;
+  --secondary: #b0b8c4 !important;
+  --tertiary: #c9cdd4 !important;
+  --highlight: rgba(176, 184, 196, 0.1) !important;
+  --textHighlight: rgba(176, 184, 196, 0.15) !important;
+  --link-color: #b0b8c4 !important;
+  --link-color-hover: #e5e7eb !important;
+  --icon-color: #9ca3af !important;
+  --divider-color: #2a2e35 !important;
+  --tag-background: rgba(176, 184, 196, 0.1) !important;
+  --tag-color: #b0b8c4 !important;
+  --tag-background-hover: rgba(176, 184, 196, 0.18) !important;
+  --nav-item-color: #9ca3af !important;
+  --nav-item-color-hover: #e5e7eb !important;
+  --nav-item-color-active: #c9cdd4 !important;
+  --nav-item-background-hover: #161a20 !important;
+  --nav-item-background-active: rgba(176, 184, 196, 0.1) !important;
+  --interactive-normal: #0f1115 !important;
+  --interactive-hover: #161a20 !important;
+  --interactive-accent: #b0b8c4 !important;
+  --interactive-accent-hover: #c9cdd4 !important;
   color-scheme: dark;
 }
 
@@ -37,16 +37,65 @@
   saved-theme: dark;
 }
 
-// === JetBrains Mono for headings h1-h3 ===
+// === Montserrat for headings ===
 h1, h2, h3 {
-  font-family: 'JetBrains Mono', monospace !important;
+  font-family: 'Montserrat', sans-serif !important;
   letter-spacing: -0.02em;
-  color: #e8f7fc;
+  color: #e5e7eb;
 }
 
-// Code blocks and inline code
+// Body default font
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+// Code stays monospace
 code, pre, kbd, samp {
   font-family: 'JetBrains Mono', monospace !important;
+}
+
+// === Spotlight grid behind the cursor (top of the page) ===
+.spotlight-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70vh;
+  z-index: 0;
+  pointer-events: none;
+  --mx: 50%;
+  --my: 40%;
+  background-image:
+    linear-gradient(to right, rgba(176, 184, 196, 0.16) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(176, 184, 196, 0.16) 1px, transparent 1px);
+  background-size: 120px 120px;
+  background-position: center top;
+  -webkit-mask-image:
+    radial-gradient(circle 300px at var(--mx) var(--my), rgba(0, 0, 0, 1) 0%, transparent 65%),
+    linear-gradient(to bottom, transparent 0%, transparent 25%, rgba(0, 0, 0, 0.1) 45%, rgba(0, 0, 0, 0.25) 70%, rgba(0, 0, 0, 0.4) 100%);
+  mask-image:
+    radial-gradient(circle 300px at var(--mx) var(--my), rgba(0, 0, 0, 1) 0%, transparent 65%),
+    linear-gradient(to bottom, transparent 0%, transparent 25%, rgba(0, 0, 0, 0.1) 45%, rgba(0, 0, 0, 0.25) 70%, rgba(0, 0, 0, 0.4) 100%);
+  -webkit-mask-composite: source-over;
+  mask-composite: add;
+}
+
+// === Scroll reveal (only active when JS is available) ===
+.js .page-header,
+.js article,
+.js .page-footer,
+.js footer {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.js .page-header.is-visible,
+.js article.is-visible,
+.js .page-footer.is-visible,
+.js footer.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 // === Tag badges ===
@@ -54,10 +103,10 @@ code, pre, kbd, samp {
   display: inline-block;
   padding: 1px 8px;
   margin: 1px 2px;
-  border: 1px solid rgba(56, 198, 232, 0.35);
+  border: 1px solid rgba(176, 184, 196, 0.35);
   border-radius: 4px;
-  background: rgba(56, 198, 232, 0.08);
-  color: #38c6e8 !important;
+  background: rgba(176, 184, 196, 0.08);
+  color: #b0b8c4 !important;
   font-family: 'JetBrains Mono', monospace !important;
   font-size: 11px;
   line-height: 1.6;
@@ -65,9 +114,9 @@ code, pre, kbd, samp {
   transition: background 0.15s, border-color 0.15s;
 
   &:hover {
-    background: rgba(56, 198, 232, 0.18);
-    border-color: rgba(56, 198, 232, 0.6);
-    color: #5ed8ff !important;
+    background: rgba(176, 184, 196, 0.18);
+    border-color: rgba(176, 184, 196, 0.6);
+    color: #c9cdd4 !important;
   }
 
   &::before {
@@ -98,43 +147,43 @@ ul.tags {
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0a0e12;
+  background: #0f1115;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1a2830;
+  background: #2a2e35;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #38c6e8;
+  background: #b0b8c4;
 }
 
 // === Selection ===
 ::selection {
-  background: rgba(56, 198, 232, 0.3);
-  color: #e8f7fc;
+  background: rgba(176, 184, 196, 0.3);
+  color: #e5e7eb;
 }
 
 // === Links ===
 a {
-  color: #38c6e8;
-  text-decoration-color: rgba(56, 198, 232, 0.3);
+  color: #b0b8c4;
+  text-decoration-color: rgba(176, 184, 196, 0.3);
 
   &:hover {
-    color: #5ed8ff;
-    text-decoration-color: #5ed8ff;
+    color: #e5e7eb;
+    text-decoration-color: #e5e7eb;
   }
 }
 
 // === Code blocks — dark bg ===
 pre {
-  background: #0d1318 !important;
-  border: 1px solid #1a2830;
+  background: #161a20 !important;
+  border: 1px solid #2a2e35;
   border-radius: 6px;
   padding: 12px 16px;
 }
 
 code {
-  background: rgba(56, 198, 232, 0.06);
+  background: rgba(176, 184, 196, 0.06);
   padding: 1px 5px;
   border-radius: 3px;
   font-size: 0.9em;
@@ -147,48 +196,159 @@ pre code {
 
 // === Tables ===
 table {
-  border-color: #1a2830;
+  border-color: #2a2e35;
 
   th, td {
-    border-color: #1a2830;
+    border-color: #2a2e35;
   }
 
   tr:nth-child(even) {
-    background-color: rgba(13, 19, 24, 0.6);
+    background-color: rgba(22, 26, 32, 0.6);
   }
 }
 
 // === Callout borders — accent ===
 .callout {
-  border-left-color: #38c6e8 !important;
+  border-left-color: #b0b8c4 !important;
 }
 
 // === Sidebar /Aside styling ===
 aside, .sidebar, nav {
-  background-color: #0d1318;
-  border-color: #1a2830;
+  background-color: #161a20;
+  border-color: #2a2e35;
+}
+
+// === Left sidebar — nav flush to the left edge ===
+.sidebar.left {
+  padding-left: 0;
+  padding-right: 1rem;
+}
+
+// === Right sidebar — keep ~2cm gap from the right edge ===
+.sidebar.right {
+  padding-right: 4.7rem !important;
+}
+
+// === Full-width page (remove centered max-width gap) ===
+.page {
+  max-width: 100% !important;
+  margin: 0 !important;
 }
 
 // === Graph / backlinks ===
 .graph-container {
-  background: #0a0e12;
+  background: #0f1115;
 }
 
 // === Article ===
 article {
-  color: #e8f7fc;
+  color: #e5e7eb;
 }
 
 // === Search ===
 .search-result {
-  border-color: #1a2830;
+  border-color: #2a2e35;
 
   &:hover {
-    border-color: #38c6e8;
+    border-color: #b0b8c4;
   }
 }
 
 // === Horizontal rules ===
 hr {
-  border-color: #1a2830;
+  border-color: #2a2e35;
+}
+
+// === Collapsible left sidebar (hamburger toggle) ===
+#sidebar-toggle {
+  position: fixed;
+  top: 1.1rem;
+  left: 1.1rem;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  padding: 0;
+  border: 1px solid rgba(176, 184, 196, 0.22);
+  border-radius: 8px;
+  background: rgba(15, 17, 21, 0.85);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  color: #9ca3af;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease,
+    transform 0.2s ease;
+}
+
+#sidebar-toggle:hover {
+  color: #e5e7eb;
+  border-color: rgba(176, 184, 196, 0.55);
+  background: rgba(22, 26, 32, 0.95);
+  transform: translateY(-1px);
+}
+
+#sidebar-toggle svg {
+  display: block;
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+@media all and (min-width: 800px) {
+  // Content always spans full width; sidebar is a fixed overlay panel.
+  // Single-column grid so .center (auto-placed) fills the whole row —
+  // the fixed sidebar no longer occupies a grid cell to push it right.
+  .page > #quartz-body {
+    grid-template-columns: auto;
+    grid-template-areas:
+      "grid-header"
+      "grid-center"
+      "grid-footer";
+    // When the sidebar is open (fixed overlay), shift the content right so it
+    // is never hidden behind the panel.
+    padding-left: 320px;
+    transition: padding-left 0.25s ease-out;
+  }
+
+  html.sidebar-collapsed .page > #quartz-body {
+    padding-left: 0;
+  }
+
+  // Left sidebar: fixed off-canvas panel, slides in/out via GPU transform
+  .page > #quartz-body .sidebar.left {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 320px;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: #161a20;
+    border-right: 1px solid #2a2e35;
+    z-index: 100;
+    visibility: hidden;
+    transform: translateX(-100%);
+    transition: transform 0.25s ease-out, visibility 0s linear 0.25s;
+    will-change: transform;
+  }
+
+  html:not(.sidebar-collapsed) .page > #quartz-body .sidebar.left {
+    visibility: visible;
+    transform: translateX(0);
+    transition: transform 0.25s ease-out;
+  }
+
+  // Right sidebar: hidden
+  .page > #quartz-body .sidebar.right {
+    display: none;
+  }
+}
+
+@media all and (max-width: 800px) {
+  #sidebar-toggle {
+    display: none;
+  }
 }
